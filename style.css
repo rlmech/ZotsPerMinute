@@ -21,9 +21,9 @@ body {
 
 .progressBar{
     border-radius: 10px;
-    margin-right: 2%;
     margin-top: 2%;
     margin-bottom: 2%;
+    /* margin-right: 2%; */
     display: flex;
     flex-direction: column;
     width: 20%;
@@ -32,6 +32,34 @@ body {
     border: solid black;
     box-shadow: black 5px 5px 5px;
     align-items: center;
+}
+
+.progress, .progressUnfilled, .progressFilled{
+    position: relative;
+    border-radius: 50px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    width: 2%;
+    height: 400px;
+    background-color: #c2c9d3;
+    align-items: center;
+}
+
+.progressUnfilled{
+    height: 100%;
+    width: 100%;
+}
+
+.progressFilled{
+    border-radius: 1;
+    position: absolute;
+    bottom: 0px;
+    height: 5%;
+    width: 100%;
+    opacity: 90%;
+    background-color: green;
 }
 
 #correct, #correctAmount{
@@ -79,7 +107,6 @@ body {
     width: 12%;
     height: 100%;
     display: flex;
-    text-decoration: none;
     background-color: #c2c9d3;
     align-items: center;
     justify-content: center;
