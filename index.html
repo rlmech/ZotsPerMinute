@@ -12,14 +12,26 @@
     
     <h1 id="title">ZotsPerMinute</h1>
 
-    <div class="bigTextBox">
-        dsa
-        <ul class="tabs">
-            <li class="tab">OG</li>
-            <li class="tab">Zots</li>
-        </ul>
-        <div class="textToType">da</div>
-        <div class="textInput">ffd</div>
+    <div class="container">
+        <div class="bigTextBox">
+            <div class="tabs">
+                <div class="tab" id="originalMode" onclick="showOriginal()">OG</div>
+                <div class="tab" id="zotsMode" onclick="showZots()">Zots</div>
+            </div>
+            <div class="textToType">
+                textToType placeholder
+                <div class="textInput" input="text">
+                    textInput placeholder
+                </div>
+            </div>
+
+        </div>
+        <div class="progressBar">
+            <h2>Progress</h2>
+            <p id="correct">correct placeholder</p>
+            <p id="incorrect">incorrect placeholder</p>
+            <p id="wordsLeft">wordsLeft placeholder</p>
+        </div>
     </div>
 
 
