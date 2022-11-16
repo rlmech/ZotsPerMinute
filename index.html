@@ -15,29 +15,44 @@
     <div class="container">
         <div class="bigTextBox">
             <div class="tabs">
-                <div class="tab" id="originalMode" onclick="showOriginal()">OG</div>
-                <div class="tab" id="zotsMode" onclick="showZots()">Zots</div>
+                <div class="tab" id="originalMode">OG</div>
+                <div class="tab" id="zotsMode">Zots</div>
+                <div class="tab" id="customMode">Custom</div>
             </div>
-            <div class="textToType">
-                textToType placeholder
-                <div class="textInput" input="text">
-                    textInput placeholder
+            <div class="textToType" id="originalScreen">
+                textToTypeOriginal placeholder
+                <div class="textInput" id="originalTextInput">
+                    <p>originalTextInput placeholder</p>
+                </div>
+            </div>
+            <div class="textToType" id="zotsScreen">
+                textToTypeZots placeholder
+                <div class="textInput" id="zotsTextInput">
+                    <p>zotsTextInput placeholder</p>
+                </div>
+            </div>
+            <div class="textToType" id="customScreen">
+                textToTypeCustom placeholder
+                <div class="textInput" id="customTextInput">
+                    <p>customTextInput placeholder</p>
                 </div>
             </div>
 
         </div>
         <div class="progressBar">
             <h2>Progress</h2>
-            <p id="correct">correct placeholder</p>
-            <p id="incorrect">incorrect placeholder</p>
-            <p id="wordsLeft">wordsLeft placeholder</p>
+            <p id="correct">CORRECT</p>
+            <p id="correctAmount">0</p>
+            <p id="incorrect">INCORRECT</p>
+            <p id="incorrectAmount">0</p>
+            <p id="wordsLeft">WORDS LEFT</p>
+            <p id="wordsLeftAmount">0</p>
         </div>
     </div>
 
 
 
-
-    
-    <script src="./script.js"></script>
+    <script src="./screenswap.js"></script>
+    <script src="./handleTyping.js"></script>
 </body>
 </html>
