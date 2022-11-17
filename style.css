@@ -1,14 +1,30 @@
 body {
     background-color: #6aa2b8;
     /* Delete later */
-    border: solid black;
+}
+
+.head{
+    background-color: rgba(182, 36, 36, 0.384);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    
+}
+
+
+
+.buttonDiv{
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+
 }
 
 #title {
     text-align: center;
     color: #1b3d6d;
     /* Delete later */
-    border: solid black;
 }
 
 .container{
@@ -16,7 +32,6 @@ body {
     flex-direction: row;
     align-items: center;
     /* Delete later */
-    border: solid black;
 }
 
 .progressBar{

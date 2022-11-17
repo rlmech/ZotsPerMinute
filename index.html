@@ -4,13 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <link href="./images/placeholder.ico" rel="icon">
+
+  
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+
+ 
+
     <title>ZotsPerMinute</title>
 </head>
+
 <body>
-    
-    <h1 id="title">ZotsPerMinute</h1>
+    <div class="head">
+        <h1 id="title">ZotsPerMinute
+            
+        </h1>
+        <!-- 1043733027702-j74p5a47rh1djm28dec6t2sj77k7fip8.apps.googleusercontent.com -->
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <script src="webserver.js"></script>
+
+        <script>
+            window.onload = function () {
+                google.accounts.id.initialize({
+                    client_id: "1043733027702-j74p5a47rh1djm28dec6t2sj77k7fip8.apps.googleusercontent.com",
+                    callback: handleCredentialResponse
+                });
+                google.accounts.id.renderButton(
+                    document.getElementById("buttonDiv"),
+                    { theme: "outline", size: "large", type: "icon", shape: "circular" }  // customization attributes
+                );
+               google.accounts.id.prompt(); // also display the One Tap dialog
+            }
+        </script>
+        
+        <div id="buttonDiv"></div> 
+
+    </div>
+
+ 
 
     <div class="container">
         <div class="bigTextBox">
@@ -56,8 +92,10 @@
     </div>
 
 
-
+    
     <script src="./screenswap.js"></script>
     <script src="./handleTyping.js"></script>
+
+
 </body>
 </html>
