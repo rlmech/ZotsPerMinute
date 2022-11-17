@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <link href="./styles/style.css" rel="stylesheet">
+    <link href="./styles/styleGame.css" rel="stylesheet">
+    <link href="./styles/styleHead.css" rel="stylesheet">
+    <link href="./styles/styleLeaderboards.css" rel="stylesheet">
     <link href="./images/placeholder.ico" rel="icon">
 
   
@@ -14,7 +18,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
 
- 
+
 
     <title>ZotsPerMinute</title>
 </head>
@@ -24,9 +28,8 @@
         <h1 id="title">ZotsPerMinute
             
         </h1>
-        <!-- 1043733027702-j74p5a47rh1djm28dec6t2sj77k7fip8.apps.googleusercontent.com -->
         <script src="https://accounts.google.com/gsi/client" async defer></script>
-        <script src="webserver.js"></script>
+        <script src="./scripts/webserver.js"></script>
 
         <script>
             window.onload = function () {
@@ -91,11 +94,18 @@
         </div>
     </div>
 
+    <div class="leaderboardsContainer">
+        <table id="leaderboards"></table>
+    </div>
+
 
     
     <script src="./screenswap.js"></script>
     <script src="./handleTyping.js"></script>
 
 
+
+    <script src="./scripts/screenswap.js"></script>
+    <script src="./scripts/progressbar.js"></script>
 </body>
 </html>
