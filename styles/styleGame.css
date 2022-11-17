@@ -1,16 +1,3 @@
-body {
-    background-color: #6aa2b8;
-    /* Delete later */
-    border: solid black;
-}
-
-#title {
-    text-align: center;
-    color: #1b3d6d;
-    /* Delete later */
-    border: solid black;
-}
-
 .container{
     display: flex;
     flex-direction: row;
