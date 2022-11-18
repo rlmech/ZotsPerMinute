@@ -53,30 +53,17 @@
                 <input type="number" id="numZots" placeholder="Number 1-100">
                 <button id="promptButton">New Zots!</button>
             </div>
+
             <div class="tabs">
-                <!-- <div class="tab" id="originalMode">OG</div> -->
                 <div class="tab" id="zotsMode">Zots</div>
                 <div class="tab" id="creditsMode">Credits</div>
-                <!-- <div class="tab" id="customMode">Custom</div> -->
             </div>
-            <!-- <div class="textToType" id="originalScreen">
-                <span id="originalScreenText">ORIGINAL TEXT!</span>
-                <div class="textInput" id="originalTextInput">
-                    <p>originalTextInput placeholder</p>
-                </div>
-                <textarea id="text_typed" placeholder="start typing here..." class="textInput">
-                </textarea>
-                <div id="text_typed" class="textInput" placeholder="start typing here..." contenteditable></div>
-            </div> -->
+
             <div class="textToType" id="zotsScreen">
                 <span id="zotsScreenText">Zot Zot Zot</span>
-                <!-- <div class="textInput" id="zotsTextInput">
-                    <p>zotsTextInput placeholder</p>
-                </div>
-                <textarea id="text_typed" placeholder="start typing here..." class="textInput">
-                </textarea>-->
                 <div id="text_typed" class="textInput" placeholder="start typing here..." contenteditable></div>
             </div>
+
             <div class="textToType" id="creditsScreen">
                 <span id="creditsScreenText">
                     <i>ZotsPerMinute</i>
@@ -91,14 +78,9 @@
                     <p>Thank you!</p>
                 </div>
             </div>
-            <!-- <div class="textToType" id="customScreen">
-                <span id="customScreenText"></span>
-                <div class="textInput" id="customTextInput">
-                    <p>Thank you!</p>
-                </div>
-            </div> -->
-
         </div>
+
+
         <div class="progressBar">
             <h2>Progress</h2>
             <p id="correct">CORRECT</p>
@@ -108,11 +90,12 @@
             <p id="wordsLeft">WORDS LEFT</p>
             <p id="wordsLeftAmount">0</p>
         </div>
+        
         <div class="progress">
             <div class="progressUnfilled" id="progressUnfilled"></div>
             <div class="progressFilled" id="progressFilled"></div>
         </div>
-        </div>
+
     </div>
 
     <div class="leaderboardsContainer">
@@ -136,9 +119,6 @@
         </table>
     </div>
 
-
     <script src="./scripts/screenswap.js"></script>
-    <script src="./scripts/progressbar.js"></script>
-    <script src="./scripts/texthandler.js"></script>
 </body>
 </html>
