@@ -1,4 +1,4 @@
-var userName = "";
+var userName = "N/A";
 var userEmail = "";
 
 function handleCredentialResponse(response) {
@@ -15,3 +15,4 @@ function handleCredentialResponse(response) {
 
 }
 
+//window.handleCredentialResponse = handleCredentialResponse;
