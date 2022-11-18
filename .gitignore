@@ -1,1 +1,8 @@
+# Private key
 client_secret.json
+
+# For live server
+.vscode
+
+# npm
+node_modules/
