@@ -68,7 +68,7 @@ function changeScreens(screen, mode, textBox){
 testChar1 = "A".charCodeAt();
 testChar2 = "a".charCodeAt();
 testCharDifference = testChar1 - testChar2;
-let zotsArr = []; // Stores current zots
+let zotsArr = ["Zot", "Zot", "Zot"]; // Stores current zots
 
 // Returns an array of zots with various cases
 function makeZots(num){
@@ -129,6 +129,18 @@ promptButton.addEventListener("click", event => {
                 zotsArr = makeZots(numZots);
                 // Join function breaks array into string separated by spaces
                 zotsText.textContent = zotsArr.join(' ');
+                word_counter = 0;
+                letter_counter = 0;
+
+                wordsLeft = zotsArr.length;
+                wordsTotal = zotsArr.length;
+                correctCounter = 0;
+                incorrectCounter = 0;
+                wordsLeftAmount.textContent = wordsLeft;
+                correctAmount.textContent = correctCounter;
+                incorrectAmount.textContent = incorrectCounter;
+                currentProg = 0;
+                progressBar.style.height = 0 + "%";
             }
             break;
         case creditsScreen:
@@ -139,11 +151,125 @@ promptButton.addEventListener("click", event => {
     };
 });
 
-// Removes first zot from zotsArr and returns the removed value
 function removeFirstZot(){
-    const tempZot = zotsArr.shift()
-    zotsText.textContent = zotsArr.join(' ');
-    return tempZot;
+    if ( zotsArr.length != 0 ){
+        zotsArr.shift()
+        zotsText.textContent = zotsArr.join(' ');
+    }
+    return zotsArr;
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+/*
+<div id="text_to_type">
+    hello my name is petr
+</div>
+
+<textarea id="text_typed" placeholder="start typing here..." size="100">
+</textarea>
+*/
+
+let correctCounter = 0;
+let incorrectCounter = 0;
+let wordsLeft = 3;
+let wordsTotal = 3;
+
+const correctAmount = document.getElementById("correctAmount")
+const incorrectAmount = document.getElementById("incorrectAmount")
+const wordsLeftAmount = document.getElementById("wordsLeftAmount")
+wordsLeftAmount.textContent = wordsLeft;
+
+let word_counter = 0;
+let letter_counter = 0;
+let text_to_type = ["Zot", "Zot", "Zot"];
+let text_typed = document.getElementById("text_typed");
+//let text_typed = docuement.getElementById("originalTextInput");
+//let text = document.getElementById("text_to_type");
+let word = "";
+let symbols = ['.', ',', '/', '-', '?', '!', '(', ')', ':', ';', '#', '@', '%'];
+
+text_typed.addEventListener("keydown", (event) => {
+    const key = event.key;
+    const code = event.keyCode;
+    //const right_key = text_to_type[word_counter][letter_counter];
+
+    //space and enter
+    if ( code == 32 || code == 13)
+    {
+        if ( zotsArr.length != 0 ){
+
+            if ( word == zotsArr[0] ){
+                correctCounter += 1;
+                correctAmount.textContent = correctCounter;
+            }
+            else{
+                incorrectCounter += 1;
+                incorrectAmount.textContent = incorrectCounter;
+            }
+
+            wordsLeft -= 1;
+            wordsLeftAmount.textContent = wordsLeft;
+
+            word_counter++;
+            //text_typed.value = "";
+            //text_typed.innerHTML = text_typed.getAttribute("placeholder");
+            text_typed.innerHTML = "";
+            word = "";
+            removeFirstZot();
+            changeProgress(1);
+        }
+
+        letter_counter = 0;
+        text_typed.innerHTML = "";
+        word = "";
+    }
+
+    //backspace
+    else if (code == 8)
+    {
+        if (letter_counter > 0)
+        {
+            word = word.slice(0,-1);
+            letter_counter--;
+            if ( word == zotsArr[0].substring(0,letter_counter))
+            {
+                text_typed.style.color = "green";
+            }
+            else
+            {
+                text_typed.style.color = "red";
+            }
+        }
+    }
+
+    //alphanumeric or special symbol
+    else if ((code >= 48 && code <= 57) || (code >= 65 && code <= 90) || (symbols.includes(key)))
+    {
+        letter_counter++;
+        word += key;
+
+        if ( zotsArr.length != 0 ){
+            if ( word == zotsArr[0].substring(0,letter_counter))
+            {
+                text_typed.style.color = "green";
+            }
+            else
+            {
+                text_typed.style.color = "red";
+            }
+        }
+    }
+});
+
+
+const progressBar = document.getElementById("progressFilled");
+
+
+// Changes progress bar
+let currentProg = 0;
+function changeProgress(progress){
+    currentProg += (progress / wordsTotal);
+    progressBar.style.height = (currentProg*100 + '%');
+}

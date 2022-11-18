@@ -1,3 +1,9 @@
 body {
+    min-width: 640px;
     background-color: #6aa2b8;
+}
+
+#title{
+    max-width: 100%;
+    height: auto;
 }
