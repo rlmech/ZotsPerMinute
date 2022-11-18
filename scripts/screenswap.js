@@ -1,44 +1,25 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Some early variable initialization
-// const originalMode = document.getElementById("originalMode");
-// const originalScreen = document.getElementById("originalScreen");
-// const originalText = document.getElementById("originalScreenText");
-
 const zotsMode = document.getElementById("zotsMode");
 const zotsScreen = document.getElementById("zotsScreen");
 const zotsText = document.getElementById("zotsScreenText");
-// const zotsText = document.getElementById("zotsScreenText");
-
-// const customMode = document.getElementById("customMode");
-// const customScreen = document.getElementById("customScreen");
-// const customText = document.getElementById("customScreenText");
 
 const creditsMode = document.getElementById("creditsMode");
 const creditsScreen = document.getElementById("creditsScreen");
 const creditsText = document.getElementById("creditsScreenText");
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Default screen (when user first loads page)
-// originalScreen.style.display = "block";
 zotsScreen.style.display = "block";
-// customScreen.style.display = "none";
 creditsScreen.style.display = "none";
 
-
-// let currentScreen = originalScreen;
-// let currentMode = originalMode;
-// let currentText = originalText;
 let currentScreen = zotsScreen;
 let currentMode = zotsMode;
 let currentText = zotsText;
 changeScreens(currentScreen, currentMode, currentText);
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 // On tab click, switch screens
-// originalMode.addEventListener("click", clickedOriginal => {
-//     changeScreens(originalScreen, originalMode, originalText);
-// });
-
 zotsMode.addEventListener("click", clickedZots => {
     changeScreens(zotsScreen, zotsMode, zotsText);
 });
@@ -46,10 +27,6 @@ zotsMode.addEventListener("click", clickedZots => {
 creditsMode.addEventListener("click", clickedCredits => {
     changeScreens(creditsScreen, creditsMode, creditsText);
 });
-
-// customMode.addEventListener("click", clickedCustom => {
-//     changeScreens(customScreen, customMode, customText);
-// });
 
 function changeScreens(screen, mode, textBox){
     currentScreen.style.display = "none";
@@ -62,8 +39,8 @@ function changeScreens(screen, mode, textBox){
     currentScreen = screen;
     currentMode = mode;
 };
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // Let user choose the amount of zots
 testChar1 = "A".charCodeAt();
 testChar2 = "a".charCodeAt();
@@ -112,15 +89,13 @@ function randCase(character){
     return character;
 }
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // On button click, create new prompt
 const promptButton = document.getElementById("promptButton");
 const numZotsField = document.getElementById("numZots");
 
 promptButton.addEventListener("click", event => {
     switch (currentScreen) {
-        // case originalScreen:
-        //     originalText.textContent = dummyText;
-        //     break;
         case zotsScreen:
             // This is an array
             const numZots = parseInt(numZotsField.value);
@@ -145,9 +120,6 @@ promptButton.addEventListener("click", event => {
             break;
         case creditsScreen:
             break;
-        // case customScreen:
-        //     customText.textContent = dummyText;
-        //     break;
     };
 });
 
@@ -160,17 +132,7 @@ function removeFirstZot(){
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-/*
-<div id="text_to_type">
-    hello my name is petr
-</div>
-
-<textarea id="text_typed" placeholder="start typing here..." size="100">
-</textarea>
-*/
-
+// Counters
 let correctCounter = 0;
 let incorrectCounter = 0;
 let wordsLeft = 3;
@@ -183,17 +145,17 @@ wordsLeftAmount.textContent = wordsLeft;
 
 let word_counter = 0;
 let letter_counter = 0;
-let text_to_type = ["Zot", "Zot", "Zot"];
+
 let text_typed = document.getElementById("text_typed");
-//let text_typed = docuement.getElementById("originalTextInput");
-//let text = document.getElementById("text_to_type");
+
 let word = "";
 let symbols = ['.', ',', '/', '-', '?', '!', '(', ')', ':', ';', '#', '@', '%'];
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Key capture functionality
 text_typed.addEventListener("keydown", (event) => {
     const key = event.key;
     const code = event.keyCode;
-    //const right_key = text_to_type[word_counter][letter_counter];
 
     //space and enter
     if ( code == 32 || code == 13)
@@ -213,8 +175,6 @@ text_typed.addEventListener("keydown", (event) => {
             wordsLeftAmount.textContent = wordsLeft;
 
             word_counter++;
-            //text_typed.value = "";
-            //text_typed.innerHTML = text_typed.getAttribute("placeholder");
             text_typed.innerHTML = "";
             word = "";
             removeFirstZot();
@@ -233,15 +193,15 @@ text_typed.addEventListener("keydown", (event) => {
         {
             word = word.slice(0,-1);
             letter_counter--;
-            if ( word == zotsArr[0].substring(0,letter_counter))
-            {
-                text_typed.style.color = "green";
+                if ( word == zotsArr[0].substring(0,letter_counter))
+                {
+                    text_typed.style.color = "green";
+                }
+                else
+                {
+                    text_typed.style.color = "red";
+                }
             }
-            else
-            {
-                text_typed.style.color = "red";
-            }
-        }
     }
 
     //alphanumeric or special symbol
@@ -263,9 +223,9 @@ text_typed.addEventListener("keydown", (event) => {
     }
 });
 
-
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Progress bar functionality
 const progressBar = document.getElementById("progressFilled");
-
 
 // Changes progress bar
 let currentProg = 0;
@@ -273,3 +233,5 @@ function changeProgress(progress){
     currentProg += (progress / wordsTotal);
     progressBar.style.height = (currentProg*100 + '%');
 }
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
