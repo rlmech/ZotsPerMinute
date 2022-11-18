@@ -4,30 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./styles/style.css" rel="stylesheet">
-    <link href="./styles/style.css" rel="stylesheet">
-    <link href="./styles/styleGame.css" rel="stylesheet">
-    <link href="./styles/styleHead.css" rel="stylesheet">
-    <link href="./styles/styleLeaderboards.css" rel="stylesheet">
-    <link href="./images/favicon.ico" rel="icon">
 
-  
+    <link href="./styles/style.css" rel="stylesheet">
+    <link href="./styles/styleHead.css" rel="stylesheet">
+    <link href="./styles/styleGame.css" rel="stylesheet">
+    <link href="./styles/styleLeaderboards.css" rel="stylesheet">
+    
+    <link href="./images/favicon.ico" rel="icon">
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
-
-
-
     <title>ZotsPerMinute</title>
 </head>
 
 <body>
+    <div id="title"><img src="./images/logo.png" id="title" alt="ZotsPerMinute"></div>
     <div class="head">
-        <h1 id="title">ZotsPerMinute
-            
-        </h1>
+        <!-- <h1 id="title">ZotsPerMinute</h1> -->
         <script src="https://accounts.google.com/gsi/client" async defer></script>
         <script src="./scripts/webserver.js"></script>
 
@@ -53,7 +48,10 @@
 
     <div class="container">
         <div class="bigTextBox">
-            <button id="promptButton">New Text</button>
+            <div class="enterFields">
+                <input type="number" id="numZots" placeholder="Number 1-100">
+                <button id="promptButton">New Zots!</button>
+            </div>
             <div class="tabs">
                 <!-- <div class="tab" id="originalMode">OG</div> -->
                 <div class="tab" id="zotsMode">Zots</div>
@@ -71,12 +69,12 @@
             </div> -->
             <div class="textToType" id="zotsScreen">
                 <span id="zotsScreenText">Zot Zot Zot</span>
-                <div class="textInput" id="zotsTextInput">
+                <!-- <div class="textInput" id="zotsTextInput">
                     <p>zotsTextInput placeholder</p>
-                </div>
+                </div> -->
                 <textarea id="text_typed" placeholder="start typing here..." class="textInput">
                 </textarea>
-                <div id="text_typed" class="textInput" placeholder="start typing here..." contenteditable></div>
+                <!-- <div id="text_typed" class="textInput" placeholder="start typing here..." contenteditable></div> -->
             </div>
             <div class="textToType" id="creditsScreen">
                 <span id="creditsScreenText">
