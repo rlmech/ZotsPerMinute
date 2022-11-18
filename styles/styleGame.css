@@ -140,3 +140,7 @@
     background-color: #c2c9d3;
     border: solid black;
 }
+
+.textInput:empty:before {
+    content: attr(placeholder);
+}
