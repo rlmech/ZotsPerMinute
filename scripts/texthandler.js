@@ -22,8 +22,8 @@ text_typed.addEventListener("keydown", (event) => {
     const code = event.keyCode;
     //const right_key = text_to_type[word_counter][letter_counter];
 
-    //space
-    if ( code == 32 )
+    //space and enter
+    if ( code == 32 || code == 13)
     {
         word_counter++;
         letter_counter = 0;
