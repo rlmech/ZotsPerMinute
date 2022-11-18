@@ -40,6 +40,14 @@ text_typed.addEventListener("keydown", (event) => {
         {
             word = word.slice(0,-1);
             letter_counter--;
+            if ( word == text_to_type[word_counter].substring(0,letter_counter))
+            {
+                text_typed.style.color = "green";
+            }
+            else
+            {
+                text_typed.style.color = "red";
+            }
         }
     }
 
