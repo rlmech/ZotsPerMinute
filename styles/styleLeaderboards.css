@@ -1,8 +1,32 @@
 .leaderboardsContainer{
-    width: 98%;
-    background-color: red;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 #leaderboards{
-    background-color: blue;
+    width: 40%;
+    border-collapse: collapse;
+    text-align: center;
+    border: solid black;
+}
+
+.columnHead {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    background-color: #1b3d6d;
+}
+
+.personEntry {
+    border: 1px solid rgb(190, 190, 190);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #0083b3;
+    color: black;
+    border: black;
+}
+
+.zotsTypedAmount {
+    background-color: #c6beb5;
 }
