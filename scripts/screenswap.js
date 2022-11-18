@@ -64,11 +64,55 @@ function changeScreens(screen, mode, textBox){
 };
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// On button click, switch values and 
-const promptButton = document.getElementById("promptButton");
+// Let user choose the amount of zots
+testChar1 = "A".charCodeAt();
+testChar2 = "a".charCodeAt();
+testCharDifference = testChar1 - testChar2;
 
-let dummyText = "I really like cool things";
-let parsedText = dummyText.split('');
+// Returns an array of zots with various cases
+function makeZots(num){
+    let arr = [];
+    for ( i = 0; i < num; i++ ){
+        arr.push( makeZot() );
+    }
+    console.log(arr)
+}
+
+// Generates a zot of random cases
+function makeZot(){
+    str = "";
+    str += randCase("Z")
+    str += randCase("O")
+    str += randCase("T")
+    if ( Math.floor(Math.random()*2) == 1 ){
+        str += randCase("s");
+    }
+    return str;
+}
+
+// If capitalized letter is passed in, then 50/50 chance to return it as a lowercase letter.
+function randCase(character){
+    charCode = character.charCodeAt();
+
+    // If the character is from A-Z
+    if ( testChar1 < charCode && charCode < testChar1+26 ){
+        // If the character code is the code of an upper case alphabetic character
+        if ( testChar1 < charCode && charCode < testChar1+26 ){
+            if ( Math.floor(Math.random()*2) == 0 ){
+                // Return upper case
+                return String.fromCharCode(charCode);
+            }
+            else{
+                // Return lower case
+                return String.fromCharCode(charCode - testCharDifference);
+            }
+        }
+    }
+    return character;
+}
+
+// On button click, create new prompt
+const promptButton = document.getElementById("promptButton");
 
 promptButton.addEventListener("click", event => {
     switch (currentScreen) {
@@ -76,7 +120,9 @@ promptButton.addEventListener("click", event => {
         //     originalText.textContent = dummyText;
         //     break;
         case zotsScreen:
-            zotsText.textContent = dummyText;
+            console.log("here")
+            const numZots = parseInt(document.getElementById("numZots").value);
+            zotsText.textContent = makeZots(numZots);
             break;
         case creditsScreen:
             break;
