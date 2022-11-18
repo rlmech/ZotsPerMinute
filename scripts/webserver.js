@@ -60,6 +60,8 @@ function writeUserData(text, one, oT, two, tT, three, thT) {
 
 
 function updatePodium(text, place, n, t) {
+    
+
     const innerRef = ref(db, `leaderboard/${text}/${place}/`);
     set(innerRef, {
         name: n,
@@ -68,7 +70,30 @@ function updatePodium(text, place, n, t) {
 
 }
 
-function getTop(text, speed) {
+function getLeaderboard() {
+    const dataRef = ref(db, `leaderboard/zot`);
+    //Should return Promise
+    var data;
+    onValue(dataRef, (snapshot) => {
+        data = snapshot.val();
+        console.log(data);
+        //const d = [];
+        document.getElementById("person1").innerHTML = data[1].name;
+        document.getElementById("person2").innerHTML = data[2].name;
+        document.getElementById("person3").innerHTML = data[3].name;
+        document.getElementById("person1zots").innerHTML = data[1].time;
+        document.getElementById("person2zots").innerHTML = data[2].time;
+        document.getElementById("person3zots").innerHTML = data[3].time;
+
+        // d.push(data[1].name, data[1].time, data[2].name, data[2].time, data[3].name, data[3].time);
+        // console.log(d);
+    
+    });
+
+}
+
+
+function updateLeaderboard(text, speed) {
     const dataRef = ref(db, `leaderboard/${text}`);
     //Should return Promise
     var data;
@@ -83,11 +108,11 @@ function getTop(text, speed) {
         let time3 = data[3].time;
         //console.log(name1, time1, name2, time2, name3, time3);
 
-        if (speed < time3) {
+        if (speed > time3) {
             //console.log("3", name1, time1, name2, time2, name3, time3);
-            name3 = userName;
+            name3 = UName;
             time3 = speed;
-            if (speed < time2) {
+            if (speed > time2) {
                 //console.log("2", name1, time1, name2, time2, name3, time3);
     
                 let tempTime = time2;
@@ -97,7 +122,7 @@ function getTop(text, speed) {
     
                 name3 = tempTime;
                 time3 = tempName;
-                if (speed < time1) {
+                if (speed > time1) {
                     //console.log("1", name1, time1, name2, time2, name3, time3);
         
                     let tempTime = time1;
@@ -110,34 +135,14 @@ function getTop(text, speed) {
                 }
             }
         }
-        
-        
-        //console.log(name1, time1, name2, time2, name3, time3);
-        //writeUserData(text, name1, time1, name2, time2, name3, time3);
-        
 
-        // var count = 3;
-        // for (let i = 3; i > 0; i--) {
-        //     console.log(data[i]);
-        //     if (data[i]["time"] > speed) {
-            //     console.log("Is Higher");
-            //     console.log(i);
-            //     console.log(data[i]["name"]);
-            //     if (i != 3) {
-                    
-            //         updatePodium(text, count, data[i]["name"], data[i]["time"]);
-            //     }
-            //     updatePodium(text, i, userName, speed);
-            //     count -= 1;
-
-            // }
-            // else {
-            //     break;
-            // }
-
-        // }
-
+        const d = [];
+        d.push(name1, time1, name2, time2, name3, time3);
+        return d;
+       
     });
 
 }
 
+
+document.getElementById("promptButton").addEventListener('click', getLeaderboard());
