@@ -1,3 +1,5 @@
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Some early variable initialization
 const originalMode = document.getElementById("originalMode");
 const zotsMode = document.getElementById("zotsMode");
 const customMode = document.getElementById("customMode");
@@ -9,16 +11,21 @@ const customScreen = document.getElementById("customScreen");
 const originalText = document.getElementById("originalScreenText");
 const zotsText = document.getElementById("zotsScreenText");
 const customText = document.getElementById("customScreenText");
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// Default screen (when user first loads page)
 originalScreen.style.display = "block";
 zotsScreen.style.display = "none";
 customScreen.style.display = "none";
+
 
 let currentScreen = originalScreen;
 let currentMode = originalMode;
 let currentText = originalText;
 changeScreens(currentScreen, currentMode);
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// On tab click, switch screens
 originalMode.addEventListener("click", clickedOriginal => {
     changeScreens(originalScreen, originalMode, originalText);
 });
@@ -42,7 +49,9 @@ function changeScreens(screen, mode, textBox){
     currentScreen = screen;
     currentMode = mode;
 };
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// On button click, switch values and 
 const promptButton = document.getElementById("promptButton");
 
 let dummyText = "I really like cool things";
@@ -62,7 +71,9 @@ promptButton.addEventListener("click", event => {
             break;
     };
 });
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+// Tried replacing text colors, not sure how to do it
 // const originalTextInput = document.getElementsByClassName("originalTextInput");
 // const zotsTextInput = document.getElementsByClassName("zotsTextInput");
 // const customTextInput = document.getElementsByClassName("customTextInput");
