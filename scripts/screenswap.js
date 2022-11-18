@@ -68,6 +68,7 @@ function changeScreens(screen, mode, textBox){
 testChar1 = "A".charCodeAt();
 testChar2 = "a".charCodeAt();
 testCharDifference = testChar1 - testChar2;
+let zotsArr = []; // Stores current zots
 
 // Returns an array of zots with various cases
 function makeZots(num){
@@ -75,12 +76,12 @@ function makeZots(num){
     for ( i = 0; i < num; i++ ){
         arr.push( makeZot() );
     }
-    console.log(arr)
+    return arr;
 }
 
 // Generates a zot of random cases
 function makeZot(){
-    str = "";
+    let str = "";
     str += randCase("Z")
     str += randCase("O")
     str += randCase("T")
@@ -113,6 +114,7 @@ function randCase(character){
 
 // On button click, create new prompt
 const promptButton = document.getElementById("promptButton");
+const numZotsField = document.getElementById("numZots");
 
 promptButton.addEventListener("click", event => {
     switch (currentScreen) {
@@ -120,9 +122,14 @@ promptButton.addEventListener("click", event => {
         //     originalText.textContent = dummyText;
         //     break;
         case zotsScreen:
-            console.log("here")
-            const numZots = parseInt(document.getElementById("numZots").value);
-            zotsText.textContent = makeZots(numZots);
+            // This is an array
+            const numZots = parseInt(numZotsField.value);
+            numZotsField.value = "";
+            if ( 1 <= numZots && numZots <= 100 ){
+                zotsArr = makeZots(numZots);
+                // Join function breaks array into string separated by spaces
+                zotsText.textContent = zotsArr.join(' ');
+            }
             break;
         case creditsScreen:
             break;
@@ -131,4 +138,12 @@ promptButton.addEventListener("click", event => {
         //     break;
     };
 });
+
+// Removes first zot from zotsArr and returns the removed value
+function removeFirstZot(){
+    const tempZot = zotsArr.shift()
+    zotsText.textContent = zotsArr.join(' ');
+    return tempZot;
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
