@@ -76,7 +76,7 @@ function getLeaderboard() {
     var data;
     onValue(dataRef, (snapshot) => {
         data = snapshot.val();
-        console.log(data);
+        //console.log(data);
         //const d = [];
         document.getElementById("person1").innerHTML = data[1].name;
         document.getElementById("person2").innerHTML = data[2].name;
@@ -143,6 +143,16 @@ function updateLeaderboard(text, speed) {
     });
 
 }
+// /function watchglob() {
+//     var tmp_glob = glob;
+//     setTimeout(function () {
+//         if (tmp_glob == glob) {
+//             console.log("The value hasn't changed.");
+//         } else {
+//             console.log("The value has changed");
+//             tmp_glob = glob;
+//         }
+//     }, 10000);
+// }
 
-
-document.getElementById("promptButton").addEventListener('click', getLeaderboard());
+getLeaderboard();
