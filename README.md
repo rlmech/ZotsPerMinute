@@ -11,6 +11,7 @@ To play:
  - Run 'npm start' in console to run the packages 
 
 UCI-themed typing game where you try to type various forms of the word "Zot". 
+![Overview of ZotsPerMinute](./images/overview.PNG)
 
 Functions: 
  - Typing game
