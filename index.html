@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet">
+    <link href="./styles/style.css" rel="stylesheet">
     <link href="./styles/style.css" rel="stylesheet">
     <link href="./styles/styleGame.css" rel="stylesheet">
     <link href="./styles/styleHead.css" rel="stylesheet">
@@ -53,25 +53,26 @@
 
     <div class="container">
         <div class="bigTextBox">
+            <button id="promptButton">New Text</button>
             <div class="tabs">
                 <div class="tab" id="originalMode">OG</div>
                 <div class="tab" id="zotsMode">Zots</div>
                 <div class="tab" id="customMode">Custom</div>
             </div>
             <div class="textToType" id="originalScreen">
-                textToTypeOriginal placeholder
+                <span id="originalScreenText">ORIGINAL TEXT!</span>
                 <div class="textInput" id="originalTextInput">
                     <p>originalTextInput placeholder</p>
                 </div>
             </div>
             <div class="textToType" id="zotsScreen">
-                textToTypeZots placeholder
+                <span id="zotsScreenText">ZOTS TEXT!</span>
                 <div class="textInput" id="zotsTextInput">
                     <p>zotsTextInput placeholder</p>
                 </div>
             </div>
             <div class="textToType" id="customScreen">
-                textToTypeCustom placeholder
+                <span id="customScreenText">CUSTOM TEXT!</span>
                 <div class="textInput" id="customTextInput">
                     <p>customTextInput placeholder</p>
                 </div>
@@ -97,12 +98,6 @@
     <div class="leaderboardsContainer">
         <table id="leaderboards"></table>
     </div>
-
-
-    
-    <script src="./screenswap.js"></script>
-    <script src="./handleTyping.js"></script>
-
 
 
     <script src="./scripts/screenswap.js"></script>

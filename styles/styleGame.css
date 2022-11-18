@@ -1,8 +1,14 @@
 .container{
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     /* Delete later */
+}
+
+.promptButton{
+    position: absolute;
+    right: 2%;
 }
 
 .progressBar{
