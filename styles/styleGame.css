@@ -52,6 +52,7 @@
     width: 100%;
     opacity: 90%;
     background-color: green;
+    transition: height 1s linear;
 }
 
 #correct, #correctAmount{
@@ -135,12 +136,21 @@
     margin: 2%;
     padding: 1% 2% 1% 2%;
     width: 90%;
-    height: 10%;
+    height: 3%;
     justify-content: center;
     background-color: #c2c9d3;
     border: solid black;
+    overflow: hidden;
+    resize: none;
 }
 
 .textInput:empty:before {
     content: attr(placeholder);
+}
+
+.back-icon{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 1%;
 }

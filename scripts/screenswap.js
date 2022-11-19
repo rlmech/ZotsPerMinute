@@ -244,3 +244,7 @@ function changeProgress(progress){
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// scrolls to the top of the screen
+function toTop() {
+    window.scrollTo(0, 0);
+}
