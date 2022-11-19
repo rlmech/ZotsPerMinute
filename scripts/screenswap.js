@@ -94,11 +94,16 @@ function randCase(character){
 const promptButton = document.getElementById("promptButton");
 const numZotsField = document.getElementById("numZots");
 
+//Global Variable for total Zot Completed
+window.totalZotCompleted = 0;
+var currentZot = 0;
+
 promptButton.addEventListener("click", event => {
     switch (currentScreen) {
         case zotsScreen:
             // This is an array
             const numZots = parseInt(numZotsField.value);
+            currentZot = numZots;
             numZotsField.value = "";
             if ( 1 <= numZots && numZots <= 100 ){
                 zotsArr = makeZots(numZots);
@@ -127,6 +132,10 @@ function removeFirstZot(){
     if ( zotsArr.length != 0 ){
         zotsArr.shift()
         zotsText.textContent = zotsArr.join(' ');
+    }
+    if (zotsArr.length == 0) {
+        window.totalZotCompleted = currentZot;
+        currentZot = 0;
     }
     return zotsArr;
 }
@@ -180,7 +189,7 @@ text_typed.addEventListener("keydown", (event) => {
             removeFirstZot();
             changeProgress(1);
         }
-
+        
         letter_counter = 0;
         text_typed.innerHTML = "";
         word = "";
