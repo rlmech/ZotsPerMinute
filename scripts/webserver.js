@@ -86,59 +86,84 @@ function updateLeaderboard(text, speed) {
     onValue(dataRef, (snapshot) => {
         data = snapshot.val();
         var d = [];
-        //d.push(data[1].name, data[1].time, data[2].name, data[2].time, data[3].name, data[3].time, "", 0);
-        let name1 = data[1].name;
-        let time1 = data[1].time;
-        let name2 = data[2].name;
-        let time2 = data[2].time;
-        let name3 = data[3].name;
-        let time3 = data[3].time;
-        // console.log(d);
-        // for (let i = 5; i >= 1; i -= 2) {
-        //     console.log(i);
-        //     if (data[i] < speed) {
-                
-        //         data[i+2] = data[i];
-        //         data[i+1] = data[i-1];
-
-        //         data[i] = speed;
-        //         data[i-1] = UName;
-        //         console.log(d);
-                
-        //     }
-        // }
-        // console.log("Works", d);
-        // console.log(d);
-        var tempTime;
-        var tempName;
-        if (speed > time3) {
-            name3 = UName;
-            time3 = speed;
-            if (speed > time2) {
-                tempTime = time2;
-                tempName = name2;
-
-                name2 = name3;
-                time2 = time3;
-
-                time3 = tempTime;
-                name3 = tempName;
-                
-                if (speed > time1) {        
-                    tempTime = time1;
-                    tempName = name1;
-
-                    name1 = name2;
-                    time1 = time2;
+        d.push(data[1].name, data[1].time, data[2].name, data[2].time, data[3].name, data[3].time, "", 0);
         
-                    name2 = tempName;
-                    time2 = tempTime;  
-                }
+        var x = [];
+        var finish = true;
+        
+        if (d[1] < speed) {
+            x.push(UName);
+            x.push(speed);
+            finish = false;
+        }
+        x.push(d[0]);
+        x.push(d[1]);
+
+        if (finish == true) {
+            if (d[3] < speed) {
+                x.push(UName);
+                x.push(speed);
+                finish = false;
+            }
+        }
+        x.push(d[2]);
+        x.push(d[3]);
+
+        if (finish == true) {
+            if (d[5] < speed) {
+                x.push(UName);
+                x.push(speed);
             }
         }
 
+        x.push(d[4]);
+        x.push(d[5]);
+        setTimeout(() => {
+            writeUserData("zot", x[0], x[1], x[2], x[3], x[4], x[5]);
+            
+          }, 3000)
+        setTimeout(() => {
+            return;
+        }, 5000)
+        
+        
 
-        writeUserData(text, name1, time1, name2, time2, name3, time3);
+        // console.log("Works", d);
+        // console.log(d);
+        // var tempT2;
+        // var tempN2;
+        // var tempT3;
+        // var tempN3;
+        // var tempName;
+        // if (speed > time3) {
+        //     name3 = UName;
+        //     time3 = speed;
+        //     if (speed > time2) {
+        //         let tempTime = JSON.parse(JSON.stringify(time2));
+        //         let tempName = JSON.parse(JSON.stringify(name2));
+
+        //         name2 = name3;
+        //         time2 = time3;
+
+        //         time3 = tempTime;
+        //         name3 = tempName;
+                
+        //         if (speed > time1) {       
+        //             let tempTime = JSON.parse(JSON.stringify(time1));
+        //             let tempName = JSON.parse(JSON.stringify(name1)); 
+        //             // let tempTime = {...time1};
+        //             // let tempName = {...name1};
+
+        //             name1 = name2;
+        //             time1 = time2;
+        
+        //             name2 = tempName;
+        //             time2 = tempTime;  
+        //         }
+        //     }
+        // }
+
+
 
         // const d = [];
         // d.push(name1, time1, name2, time2, name3, time3);
@@ -149,17 +174,17 @@ function updateLeaderboard(text, speed) {
 }
 function checkLeader() {
     getLeaderboard();
-    console.log(UName);
-    console.log(window.totalZotCompleted);
     if (window.totalZotCompleted != 0) {
-        updateLeaderboard("zot", window.totalZotCompleted);
         window.totalZotCompleted = 0;
-        console.log("hello");
+        
     }
     setTimeout(checkLeader, 5000);
 
 }
 
-checkLeader();
 //writeUserData("zot", "Brian", 3, "Camille", 2, "Wongma", 1);
+checkLeader()
+
+
+//checkLeader();
 
