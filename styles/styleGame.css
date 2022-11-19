@@ -52,6 +52,7 @@
     width: 100%;
     opacity: 90%;
     background-color: green;
+    transition: height 1s linear;
 }
 
 #correct, #correctAmount{
